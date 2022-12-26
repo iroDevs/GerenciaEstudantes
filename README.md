@@ -1,2 +1,3 @@
-# GerenciaEstudantes
-Feito para melhorar meu conhecimento em lumen
+# Lumen PHP Framework
+
+Feito para aprimorar meus conhecimentos em Lumem e PHP
