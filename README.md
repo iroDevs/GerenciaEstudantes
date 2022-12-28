@@ -4,6 +4,13 @@
 
 Gerencia nota é uma API Rest. Feita para gerenciar notas de uma escola fictícia em diversos cursos, basicamente os professores tem acesso há um CRUD para realizar o acompanhamento de seus alunos
 
+Tecnologias usadas
+
+- PHP
+- LUMEM
+- ELOQUENT ORM ( SQL )
+- REST API
+
 ### Regras
 
 ### Os usuários podem:
@@ -22,7 +29,7 @@ Gerencia nota é uma API Rest. Feita para gerenciar notas de uma escola fictíci
 > O proprio sistema tem meios de identificar e alertar essas falhas
 
 
-## Docomentaçã
+## Docomentação
 
 Há apenas um Grupo de rotas que formam um Crud na entidade Aluno
 
