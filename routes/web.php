@@ -18,4 +18,6 @@ $router->group(['prefix' => 'aluno'], function () use ($router) {
     $router->get('/', 'AlunosController@getAllAlunos');
     $router->get('/{id}', 'AlunosController@getAlunoById');
     $router->post('/', 'AlunosController@createAluno');
+    $router->put('/{id}', 'AlunosController@updateAluno');
+    $router->delete('/{id}', 'AlunosController@deleteAluno');
 });

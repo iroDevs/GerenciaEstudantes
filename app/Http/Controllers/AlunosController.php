@@ -39,7 +39,7 @@ class AlunosController extends Controller
         return response()->json($data['data'],$data['status']);
     }
 
-    public function deleteAlunoById(int $id): JsonResponse
+    public function deleteAluno(int $id): JsonResponse
     {
         $data = Alunos::delete($id);
 
