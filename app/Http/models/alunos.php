@@ -5,7 +5,6 @@ namespace App\Http\Models;
 
 use App\Models\Aluno;
 use App\Http\Interface\IAlunos;
-use Illuminate\Support\Facades\Date;
 
 class Alunos implements IAlunos
 {
@@ -23,7 +22,7 @@ class Alunos implements IAlunos
         $this->nota = $nota;
     }
 
-    private function mapToEntity(int $id):void
+    public function mapToEntity(int $id):void
     {
         $aluno = Aluno::where('id',$id)->first();
 
@@ -59,9 +58,47 @@ class Alunos implements IAlunos
         return $data;
     }
 
+    public function update(int $id): array
+    {
+        if($this->isDuplicate($this->nome))
+            return $data = [ "data" => "usuario ja existe" , "status" => 400];
+
+        $updateAluno = Aluno::find($id);
+        $updateAluno->nome = $this->nome;
+        $updateAluno->curso = $this->curso;
+        $updateAluno->nota = $this->nota;
+    
+        $updateAluno->save();
+
+        $data = [
+            "data" => $updateAluno,
+            "status" => 200
+        ];
+
+        return $data;
+    }
+
+    public static function delete(int $id):array
+    {
+        $res=Aluno::where('id',$id)->delete();
+
+        if (!$res) {
+            $data = [
+                'data'=> 'algo deu errado',
+                'status' => 400
+            ];
+            return $data;
+        }
+        $data = [
+            'data' => "sucesso aluno deletado",
+            'status' => 202,
+        ];
+
+        return $data;
+    }
+
     public static function getAll():array
     {
-       
         $allAlunos = Aluno::all();
         $data = [
             'data' => $allAlunos,
