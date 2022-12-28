@@ -12,14 +12,14 @@ use Laravel\Lumen\Auth\Authorizable;
 class Aluno extends Model implements AuthenticatableContract, AuthorizableContract
 {
     use Authenticatable, Authorizable, HasFactory;
-
+    public $timestamps = false; // minha tabela não possui essas colunas
     /**
      * The attributes that are mass assignable.
      *
      * @var string[]
      */
     protected $fillable = [
-        'nome', 'nota','curso'
+        'nome', 'nota','curso',
     ];
 
     

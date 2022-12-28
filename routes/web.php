@@ -15,6 +15,7 @@
 
 $router->group(['prefix' => 'aluno'], function () use ($router) {
  
-    // $router->get('/',"RegistroController@pegueRegistros");
     $router->get('/', 'AlunosController@getAllAlunos');
+    $router->get('/{id}', 'AlunosController@getAlunoById');
+    $router->post('/', 'AlunosController@createAluno');
 });
